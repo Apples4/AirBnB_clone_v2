@@ -2,6 +2,10 @@
 """ """
 from tests.test_models.test_base_model import test_basemodel
 from models.user import User
+from datetime import datetime
+import models
+from models.base_model import BaseModel
+import unittest
 
 
 class test_User(test_basemodel):
@@ -27,7 +31,7 @@ class test_User(test_basemodel):
         if models.storage_t == 'db':
             self.assertEqual(user.first_name, None)
         else:
-            self.assertEqual(user.first_name, "") 
+            self.assertEqual(user.first_name, "")
 
     def test_last_name(self):
         """ """
@@ -37,7 +41,7 @@ class test_User(test_basemodel):
             self.assertEqual(user.last_name, None)
         else:
             self.assertEqual(user.last_name, "")
- 
+
     def test_email(self):
         """ """
         user = User()
@@ -54,7 +58,7 @@ class test_User(test_basemodel):
         if models.storage_t == 'db':
             self.assertEqual(user.password, None)
         else:
-            self.assertEqual(user.password, "") 
+            self.assertEqual(user.password, "")
 
     def test_to_dict_values(self):
         """ """

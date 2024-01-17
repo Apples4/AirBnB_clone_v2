@@ -1,7 +1,12 @@
 #!/usr/bin/python3
 """ """
 from tests.test_models.test_base_model import test_basemodel
-from models.review import Review
+from datetime import datetime
+import models
+from models import review
+from models.base_model import BaseModel
+import unittest
+Review = review.Reviewrom models.review import Review
 
 
 class test_review(test_basemodel):
@@ -28,7 +33,7 @@ class test_review(test_basemodel):
         if models.storage_t == 'db':
             self.assertEqual(review.place_id, None)
         else:
-            self.assertEqual(review.place_id, "") 
+            self.assertEqual(review.place_id, "")
 
     def test_user_id(self):
         """ """
@@ -37,14 +42,14 @@ class test_review(test_basemodel):
         if models.storage_t == 'db':
             self.assertEqual(review.user_id, None)
         else:
-            self.assertEqual(review.user_id, "") 
+            self.assertEqual(review.user_id, "")
 
     def test_text(self):
         """ """
         review = Review()
         self.assertTrue(hasattr(review, "text"))
         if models.storage_t == 'db':
-            self.assertEqual(review.text, None) 
+            self.assertEqual(review.text, None)
 
     def test_to_dict_values(self):
         """ """

@@ -1,11 +1,13 @@
 #!/usr/bin/python3
 """ """
 from models.base_model import BaseModel
+import models
 import unittest
 import datetime
 from uuid import UUID
 import json
 import os
+BaseModel = models.base_model.BaseModel
 
 
 class test_basemodel(unittest.TestCase):
@@ -29,7 +31,7 @@ class test_basemodel(unittest.TestCase):
                 self.assertIn(attr, inst.__dict__)
                 self.assertIs(type(inst.__dict__[attr]), typ)
         self.assertEqual(inst.name, "Holberton")
-        self.assertEqual(inst.number, 89) 
+        self.assertEqual(inst.number, 89)
 
     def setUp(self):
         """ """
@@ -38,7 +40,7 @@ class test_basemodel(unittest.TestCase):
     def tearDown(self):
         try:
             os.remove('file.json')
-        except:
+        except Exception:
             pass
 
     def test_default(self):
@@ -76,7 +78,6 @@ class test_basemodel(unittest.TestCase):
         self.assertTrue(mock_storage.new.called)
         self.assertTrue(mock_storage.save.called)
 
-
     def test_to_dict(self):
         """Test conversion of object attributes to dictionary for json"""
         my_model = BaseModel()
@@ -93,7 +94,7 @@ class test_basemodel(unittest.TestCase):
         self.assertEqual(d['__class__'], 'BaseModel')
         self.assertEqual(d['name'], "Holberton")
         self.assertEqual(d['my_number'], 89)
- 
+
     def test_todict(self):
         """ """
         t_format = "%Y-%m-%dT%H:%M:%S.%f"

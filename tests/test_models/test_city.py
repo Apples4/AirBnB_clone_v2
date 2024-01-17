@@ -1,7 +1,13 @@
 #!/usr/bin/python3
 """ """
-from tests.test_models.test_base_model import test_basemodel
-from models.city import City
+from tests.test_models.test_base_model
+import test_basemodel
+from datetime import datetime
+import models
+from models import city
+from models.base_model import BaseModel
+import unittest
+City = city.City
 
 
 class test_City(test_basemodel):
@@ -47,5 +53,3 @@ class test_City(test_basemodel):
         self.assertEqual(type(new_d["updated_at"]), str)
         self.assertEqual(new_d["created_at"], c.created_at.strftime(t_format))
         self.assertEqual(new_d["updated_at"], c.updated_at.strftime(t_format))
-
-

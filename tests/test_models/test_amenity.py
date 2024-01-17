@@ -1,7 +1,11 @@
 #!/usr/bin/python3
 """ """
-from tests.test_models.test_base_model import test_basemodel
-from models.amenity import Amenity
+from datetime import datetime
+import models
+from models import amenity
+from models.base_model import BaseModel
+import unittest
+Amenity = amenity.Amenity
 
 
 class test_Amenity(test_basemodel):
@@ -63,4 +67,3 @@ class test_Amenity(test_basemodel):
         self.assertTrue(hasattr(amenity, "id"))
         self.assertTrue(hasattr(amenity, "created_at"))
         self.assertTrue(hasattr(amenity, "updated_at"))
-

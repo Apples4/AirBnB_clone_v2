@@ -2,6 +2,12 @@
 """ """
 from tests.test_models.test_base_model import test_basemodel
 from models.place import Place
+from datetime import datetime
+import models
+from models import place
+from models.base_model import BaseModel
+import unittest
+Place = place.Place
 
 
 class test_Place(test_basemodel):
@@ -29,7 +35,7 @@ class test_Place(test_basemodel):
         if models.storage_t == 'db':
             self.assertEqual(place.user_id, None)
         else:
-            self.assertEqual(place.user_id, "") 
+            self.assertEqual(place.user_id, "")
 
     def test_name(self):
         """ """
@@ -47,7 +53,7 @@ class test_Place(test_basemodel):
         if models.storage_t == 'db':
             self.assertEqual(place.description, None)
         else:
-            self.assertEqual(place.description, "") 
+            self.assertEqual(place.description, "")
 
     def test_number_rooms(self):
         """ """
@@ -57,7 +63,7 @@ class test_Place(test_basemodel):
             self.assertEqual(place.number_rooms, None)
         else:
             self.assertEqual(type(place.number_rooms), int)
-            self.assertEqual(place.number_rooms, 0) 
+            self.assertEqual(place.number_rooms, 0)
 
     def test_number_bathrooms(self):
         """ """
@@ -67,7 +73,7 @@ class test_Place(test_basemodel):
             self.assertEqual(place.number_bathrooms, None)
         else:
             self.assertEqual(type(place.number_bathrooms), int)
-            self.assertEqual(place.number_bathrooms, 0) 
+            self.assertEqual(place.number_bathrooms, 0)
 
     def test_max_guest(self):
         """ """
@@ -77,7 +83,7 @@ class test_Place(test_basemodel):
             self.assertEqual(place.max_guest, None)
         else:
             self.assertEqual(type(place.max_guest), int)
-            self.assertEqual(place.max_guest, 0) 
+            self.assertEqual(place.max_guest, 0)
 
     def test_price_by_night(self):
         """ """
@@ -97,7 +103,7 @@ class test_Place(test_basemodel):
             self.assertEqual(place.latitude, None)
         else:
             self.assertEqual(type(place.latitude), float)
-            self.assertEqual(place.latitude, 0.0) 
+            self.assertEqual(place.latitude, 0.0)
 
     def test_longitude(self):
         """ """
@@ -107,7 +113,7 @@ class test_Place(test_basemodel):
             self.assertEqual(place.longitude, None)
         else:
             self.assertEqual(type(place.longitude), float)
-            self.assertEqual(place.longitude, 0.0) 
+            self.assertEqual(place.longitude, 0.0)
 
     def test_amenity_ids(self):
         """ """

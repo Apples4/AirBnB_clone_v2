@@ -2,6 +2,11 @@
 """ """
 from tests.test_models.test_base_model import test_basemodel
 from models.state import State
+from datetime import datetime
+import models
+from models import state
+from models.base_model import BaseModel
+import unittest
 
 
 class test_state(test_basemodel):
@@ -46,4 +51,3 @@ class test_state(test_basemodel):
         state = State()
         string = "[State] ({}) {}".format(state.id, state.__dict__)
         self.assertEqual(string, str(state))
-
