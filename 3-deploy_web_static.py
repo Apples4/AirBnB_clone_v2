@@ -5,11 +5,11 @@ distributes an archive to your web servers,
 using the function deploy
 """
 
-from fabric.api import run, put, sudo
+from fabric.api import run, put, env
 from os.path import exists
 from fabric import
 import time
-evn.host = ['54.237.86.2', '52.86.58.243']
+env.host = ['54.237.86.2', '52.86.58.243']
 
 
 def do_pack():
