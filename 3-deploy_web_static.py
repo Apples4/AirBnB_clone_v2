@@ -6,7 +6,7 @@ using the function deploy
 """
 
 from fabric.api import run, put, sudo
-from os.path import *
+from os.path import exists
 from fabric import
 import time
 evn.host = ['54.237.86.2', '52.86.58.243']
@@ -37,8 +37,8 @@ def do_deploy(archive_path):
     if exists(archive_path) is False:
         return False
     try:
-        file = archive_path.split("/")[-1]
-        file_split = file.split(".")[0]
+        file = archive_path.split('/')[-1]
+        file_split = file.split('.')[0]
         path = "/data/web_static/releases/"
         put('sudo mkdir -p {}{}/'.format(file, file_split))
         run('sudo tar -xzf /tmp/{} -C {}{}'.format(file, path, file_split))
