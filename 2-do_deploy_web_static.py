@@ -6,7 +6,11 @@ that distributes an archive to your web servers
 
 from fabric.api import run, put, env
 from os.path import exists
+
+
 env.host = ['54.237.86.2', '52.86.58.243']
+env.user = 'ubuntu'
+env.key_filename = '~/.ssh/id_rsa'
 
 
 def do_deploy(archive_path):
