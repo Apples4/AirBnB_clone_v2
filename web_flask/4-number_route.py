@@ -25,11 +25,13 @@ def c_display(text=None):
     """ returns a page that shows user url input """
     return 'C ' + text.replace('_', ' ')
 
+
 @app.route('/python', strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
 def python(text='is cool'):
     """ returns a page that shows user url input """
     return 'Python ' + text.replace('_', ' ')
+
 
 @app.route('/number', strict_slashes=False)
 @app.route('/number/<int:n>', strict_slashes=False)

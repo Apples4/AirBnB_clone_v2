@@ -19,6 +19,7 @@ def hbnb():
     """returns HBNB"""
     return 'HBNB'
 
+
 @app.route('/c/<text>', strict_slashes=False)
 def c_display(text):
     """ returns a page that shows user url input """
